@@ -1,6 +1,6 @@
 package com.murad.family_budget.controllers;
 
-import com.murad.family_budget.models.Femily;
+import com.murad.family_budget.models.Family;
 import org.springframework.beans.factory.ObjectFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,12 +17,12 @@ import java.util.Set;
 @RestController
 public class FemilyControllers {
     @Autowired
-    ObjectFactory<Femily> femily = null;
+    ObjectFactory<Family> femily = null;
 
     @GetMapping("/families")
-    public Set<Femily> getFamilies() {
+    public Set<Family> getFamilies() {
 
-        Set<Femily> femilies = new HashSet<Femily>();
+        Set<Family> femilies = new HashSet<Family>();
         femilies.add(femily.getObject().builder().name("family1").id(1234).build());
         femilies.add(femily.getObject().builder().name("family2").id(1434).build());
         femilies.add(femily.getObject().builder().name("family3").id(5234).build());

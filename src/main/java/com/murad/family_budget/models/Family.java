@@ -1,25 +1,26 @@
 package com.murad.family_budget.models;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.config.ConfigurableBeanFactory;
 import org.springframework.context.annotation.Scope;
-import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Murad Salmanov (legenda)
  * @created 30/05/2021 - 3:30
  * @project FamilyBudget
  */
-@Controller
+@Component
 @Scope(value = ConfigurableBeanFactory.SCOPE_PROTOTYPE)
 @AllArgsConstructor
 @NoArgsConstructor
-@Getter
-@Setter
-@EqualsAndHashCode
+@Data
 @Builder
-public class Femily {
-    private long id;
+public class Family {
+    private long   id;
     private String name;
 
     @Override

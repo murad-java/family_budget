@@ -1,8 +1,8 @@
 package com.murad.family_budget.controllers;
 
 import com.murad.family_budget.entity.User;
-import com.murad.family_budget.models.AuthRequestDTO;
-import com.murad.family_budget.repositories.UserRepositories;
+import com.murad.family_budget.dto.AuthRequestDTO;
+import com.murad.family_budget.repositories.UserRepository;
 import com.murad.family_budget.security.JwtTokenProvider;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -31,12 +31,12 @@ import java.util.Map;
 public class AuthController {
 
     private final AuthenticationManager authenticationManager;
-    private final UserRepositories      userRepositories;
+    private final UserRepository        userRepository;
     private final JwtTokenProvider      jwtTokenProvider;
 
-    public AuthController(AuthenticationManager authenticationManager, UserRepositories userRepositories, JwtTokenProvider jwtTokenProvider) {
+    public AuthController(AuthenticationManager authenticationManager, UserRepository userRepository, JwtTokenProvider jwtTokenProvider) {
         this.authenticationManager = authenticationManager;
-        this.userRepositories = userRepositories;
+        this.userRepository = userRepository;
         this.jwtTokenProvider = jwtTokenProvider;
     }
 
@@ -44,7 +44,7 @@ public class AuthController {
     public ResponseEntity<?> authenticate(@RequestBody AuthRequestDTO request) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));
-            User                user     = userRepositories.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User doens't existd"));
+            User                user     = userRepository.findByEmail(request.getEmail()).orElseThrow(() -> new UsernameNotFoundException("User doens't existd"));
             String              token    = jwtTokenProvider.createToken(request.getEmail(), user.getRole().name());
             Map<Object, Object> response = new HashMap<>();
             response.put("email", request.getEmail());

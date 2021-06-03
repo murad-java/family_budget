@@ -11,6 +11,6 @@ import java.util.Optional;
  * @created 01/06/2021 - 20:51
  * @project family_budget
  */
-public interface UserRepositories extends JpaRepository<User,Long> {
+public interface UserRepository extends JpaRepository<User,Long> {
     Optional<User> findByEmail(String email);
 }

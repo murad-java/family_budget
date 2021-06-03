@@ -1,7 +1,7 @@
 package com.murad.family_budget.security;
 
 import com.murad.family_budget.entity.User;
-import com.murad.family_budget.repositories.UserRepositories;
+import com.murad.family_budget.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,16 +16,16 @@ import org.springframework.stereotype.Service;
 @Service("userDetailsServiceImpl")
 public class UserDetailsServiceImpl implements UserDetailsService {
 
-    UserRepositories userRepositories;
+    UserRepository userRepository;
 
     @Autowired
-    public UserDetailsServiceImpl(UserRepositories userRepositories) {
-        this.userRepositories = userRepositories;
+    public UserDetailsServiceImpl(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-        User user=userRepositories.findByEmail(email).orElseThrow(()->
+        User user= userRepository.findByEmail(email).orElseThrow(()->
                 new UsernameNotFoundException("User doesn't exists"));
         return SecurityUser.fromUser(user);
     }

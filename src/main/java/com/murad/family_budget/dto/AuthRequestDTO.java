@@ -1,4 +1,4 @@
-package com.murad.family_budget.models;
+package com.murad.family_budget.dto;
 
 import lombok.Data;
 

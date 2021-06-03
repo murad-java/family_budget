@@ -16,14 +16,14 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @Data
-public class Families {
+public class Family {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long          id;
     private String        name;
     private LocalDateTime createDate;
 
-    public Families(String name) {
+    public Family(String name) {
         this.name = name;
         this.createDate = LocalDateTime.now();
     }

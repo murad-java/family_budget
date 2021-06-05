@@ -3,7 +3,7 @@
 
 Для подключения Базы данных к проекту войдите в папку resources  откройте файл application.properties  и поменяйте эти строку
 
-spring.datasource.url=jdbc:postgresql://localhost:5432/db_name
+spring.datasource.url=jdbc:postgresql://localhost:5432/db_name 
 spring.datasource.username=postgres
 spring.datasource.password=postgres
 

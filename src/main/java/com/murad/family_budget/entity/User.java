@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * @author Murad Salmanov (legenda)
@@ -21,18 +22,19 @@ import java.time.LocalDateTime;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long          id;
-    private long          familyId;
-    private String        fullName;
-    private String        email;
-    private String        password;
-    private float         priceLimit;
+    private long               id;
+    private long               familyId;
+    private String             fullName;
+    @Column(unique = true)
+    private String             email;
+    private String             password;
+    private float              priceLimit;
     @Enumerated(value = EnumType.STRING)
-    private Role          role;
+    private Role               role;
     @Enumerated(value = EnumType.STRING)
-    private Status        active;
-    private LocalDate     birthday;
-    private LocalDateTime creteDate;
+    private Status             active;
+    private LocalDate          birthday;
+    private LocalDateTime      creteDate;
 
     public User(long familyId, String fullName, float priceLimit, Role role, LocalDate birthday) {
         this.familyId = familyId;

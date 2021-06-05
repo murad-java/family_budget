@@ -1,0 +1,387 @@
+{
+	"info": {
+		"_postman_id": "49e5bdd1-088b-4921-9f1e-19db0359a8fc",
+		"name": "Family Budget",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AuthUser",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"user22@gmail.com\",\n    \"password\":\"user\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthAdmin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"admin@gmail.com\",\n    \"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AuthSuper",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\":\"super@gmail.com\",\n    \"password\":\"admin\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetFamilies",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyQGdtYWlsLmNvbSIsInJvbGUiOiJVU0VSIiwiaWF0IjoxNjIyNzcwNTI4LCJleHAiOjE2MjI3NzIzMjh9.Z9Z6gKoYOEhrDjVvt7wmxAURj4gdmfo7hQ55zCE5jNs",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9000/families",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"families"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMembers",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMjJAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MjI3NzgyMjAsImV4cCI6MTYyMjc4MDAyMH0.vH8_JzqnJEG_k1TZ_k4uQArH6D16g9Bojm6eP5UTml8",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9000/my/family/members",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"my",
+						"family",
+						"members"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMembersById",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMjJAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MjI3Nzk5NDEsImV4cCI6MTYyMjc4MTc0MX0.88Tdi-2qBTWqjBH_xxKhALI4wqY4jMoJ86VP76zQpx0",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:9000/family/members/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"family",
+						"members",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetMyAllOperations",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlckBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU5JU1RSQVRPUiIsImlhdCI6MTYyMjc4NDUxNSwiZXhwIjoxNjIyNzg2MzE1fQ.aWxf_fXllgdA8ex-4I4hG0pbmlFveOh2MpscwuNlLFY",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:9000/my/operation",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"my",
+						"operation"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "InMoney",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlckBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU5JU1RSQVRPUiIsImlhdCI6MTYyMjg2MjU3NiwiZXhwIjoxNjIyODY0Mzc2fQ.m97XrWPvle0RJfBqQy24hGQh6lHZ4FyWm7oUIg0QkyQ",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"score\":\"123\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/money/in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"money",
+						"in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "OutMoney",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c2VyMjJAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MjI4Njk5MDYsImV4cCI6MTYyMjg3MTcwNn0.MDA_bMbc7dGUPTs4Htr3uLpiiSX-Kn7BXpgSbvF5Pdg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"score\":\"11\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/money/out",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"money",
+						"out"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetAllFamiliesLimit",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlckBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU5JU1RSQVRPUiIsImlhdCI6MTYyMjkwMzA1MCwiZXhwIjoxNjIyOTA0ODUwfQ.EabwEdwKDpAsnyu4rGCFPaz4-KKRUEFxDiCwsIRChQs",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"limit\":22.9 \n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/families/limits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"families",
+						"limits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetLimitOnFamily",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhZG1pbkBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU5JU1RSQVRPUiIsImlhdCI6MTYyMjkwMzkwNSwiZXhwIjoxNjIyOTA1NzA1fQ.9wfKBI0nFEXHJihBZAUNaepcGyDhQ8ONtxd6FzRfIaA",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"limit\":234.9\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/family/limits",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"family",
+						"limits"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SetLimitOnMember",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJzdXBlckBnbWFpbC5jb20iLCJyb2xlIjoiU1VQRVJfQURNSU5JU1RSQVRPUiIsImlhdCI6MTYyMjkwNTY4NSwiZXhwIjoxNjIyOTA3NDg1fQ.w2u1TriO9W7wMCc0QxKr2RzOFZLDXcVoRMeKFKtyiGw",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":4,\n    \"limit\":21.3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:9000/family/member/limit",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "9000",
+					"path": [
+						"family",
+						"member",
+						"limit"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

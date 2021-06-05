@@ -11,9 +11,27 @@ import java.util.stream.Collectors;
  * @project family_budget
  */
 public enum Role {
-    USER(Set.of(Permission.FAMILY_READ, Permission.IN_MONEY, Permission.OUT_MONEY)),
-    ADMINISTRATOR(Set.of(Permission.FAMILY_READ, Permission.IN_MONEY, Permission.OUT_MONEY, Permission.SET_LIMIT)),
-    SUPER_ADMINISTRATOR(Set.of(Permission.FAMILY_READ, Permission.IN_MONEY, Permission.OUT_MONEY, Permission.SET_LIMIT, Permission.SET_ALL_FAMYLI_LIMIT));
+    USER(Set.of(Permission.GET_OPERATIONS,
+                Permission.IN_MONEY,
+                Permission.OUT_MONEY)),
+
+    ADMINISTRATOR(Set.of(Permission.GET_OPERATIONS,
+                         Permission.IN_MONEY,
+                         Permission.OUT_MONEY,
+                         Permission.GET_MY_FAMILY_MEMBERS,
+                         Permission.SET_FAMILY_LIMIT,
+                         Permission.SET_LIMITS_MY_FAMILY_MEMBER)),
+
+    SUPER_ADMINISTRATOR(Set.of(Permission.GET_OPERATIONS,
+                               Permission.IN_MONEY,
+                               Permission.OUT_MONEY,
+                               Permission.GET_MY_FAMILY_MEMBERS,
+                               Permission.SET_FAMILY_LIMIT,
+                               Permission.SET_LIMITS_MY_FAMILY_MEMBER,
+                               Permission.GET_ANY_FAMILIES_MEMBERS,
+                               Permission.SET_LIMITS_ALL_FAMILIES,
+                               Permission.SET_LIMITS_ANY_FAMILY_MEMBER,
+                               Permission.GET_ALL_FAMILIES));
     private Set<Permission> permissions;
 
     Role(Set<Permission> permissions) {

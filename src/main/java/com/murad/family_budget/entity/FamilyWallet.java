@@ -14,11 +14,11 @@ import java.time.LocalDateTime;
  */
 @Entity
 @Data
-@NoArgsConstructor
 public class FamilyWallet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long          id;
+
     private long          familyId;
     private long          userId;
     @Column(nullable = false)
@@ -26,10 +26,14 @@ public class FamilyWallet {
     @Column(nullable = false)
     private LocalDateTime operationDateTime;
 
-    public FamilyWallet(long familyId, long userId, BigDecimal score, LocalDateTime operationDateTime) {
+    public FamilyWallet(long familyId, long userId, BigDecimal score) {
         this.familyId = familyId;
         this.userId = userId;
         this.score = score;
-        this.operationDateTime = operationDateTime;
+        this.operationDateTime =LocalDateTime.now();
+    }
+
+    public FamilyWallet() {
+        this.operationDateTime =LocalDateTime.now();
     }
 }
